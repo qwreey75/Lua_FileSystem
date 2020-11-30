@@ -1,9 +1,9 @@
 local Module = {}
 
-function Split(String, Pattern)
+function Split(Str, Pattern)
 	local Pattern = Pattern or "%s"
 	local ReturnTable = {}
-	for Part in string.gmatch(String, "([^"..Pattern.."]+)") do
+	for Part in string.gmatch(Str, "([^"..Pattern.."]+)") do
 		table.insert(ReturnTable, Part)
 	end
 	return ReturnTable
@@ -78,7 +78,7 @@ end
 function Module:Move(StringDir, ToDir)
 	local FileName do
 		local SplitDir = Split(StringDir,"/")
-		local FileName = SplitDir[#SplitDir]
+		FileName = SplitDir[#SplitDir]
 	end
 	
 	local ToDir = ToDir .. "/" .. FileName
