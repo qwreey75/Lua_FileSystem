@@ -10,18 +10,45 @@ function Split(String, Pattern)
 end
 
 --// 하위 파일들 얻기(nt 계열 os 전용) => table
-function Module:GetFiles(StringDir)
-	return io.popen(([[dir "%s" /b /a-d]]):format(StringDir)):lines()
+function Module:GetFiles(StringDir,FnMode)
+	local FilesFn = io.popen(([[dir "%s" /b /a-d]]):format(StringDir)):lines()
+	if FnMode then
+		return FilesFn
+	end
+	
+	local Files = {}
+	for i,v in FilesFn do
+		Files[i] = v
+	end
+	return Files
 end
 
 --// 하위 폴더들 얻기(nt 계열 os 전용) => table
-function Module:GetFolders(StringDir)
-	return io.popen(([[dir "%s" /b /ad]]):format(StringDir)):lines()
+function Module:GetFolders(StringDir,FnMode)
+	local FilesFn = io.popen(([[dir "%s" /b /ad]]):format(StringDir)):lines()
+	if FnMode then
+		return FilesFn
+	end
+	
+	local Files = {}
+	for i,v in FilesFn do
+		Files[i] = v
+	end
+	return Files
 end
 
 --// 하위 파일/폴더들 얻기(nt 계열 os 전용) => table
-function Module:GetChildren(StringDir)
-	return io.popen(([[dir "%s" /b]]):format(StringDir)):lines()
+function Module:GetChildren(StringDir,FnMode)
+	local FilesFn = io.popen(([[dir "%s" /b]]):format(StringDir)):lines()
+	if FnMode then
+		return FilesFn
+	end
+	
+	local Files = {}
+	for i,v in FilesFn do
+		Files[i] = v
+	end
+	return Files
 end
 
 --// 상위 디렉터리 얻기 => Dir:string
