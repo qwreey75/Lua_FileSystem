@@ -88,7 +88,7 @@ function Module:Move(StringDir, ToDir)
 end
 
 --// 디렉터리가(파일) 존재 하는지 확인
-function Module.IsExistsDir(Dir)
+function Module:IsExistsDir(Dir)
 	local File = io.open(Dir, 'rb')
 	if File then
 		File:close()
@@ -97,7 +97,7 @@ function Module.IsExistsDir(Dir)
 end
 
 --// 해당 디렉터리에 해당 파일이 존재하는지 확인
-function Module.IsExists(Dir,FileName)
+function Module:IsExists(Dir,FileName)
 	local File = io.open(Dir .. "/" .. FileName, 'rb')
 	if File then
 		File:close()
