@@ -87,6 +87,32 @@ function Module:Move(StringDir, ToDir)
 	return ToDir
 end
 
+--// 디렉터리가(파일) 존재 하는지 확인
+function Module.IsExistsDir(Dir)
+	local File = io.open(Dir, 'rb')
+	if File then
+		File:close()
+	end
+	return File ~= nil
+end
+
+--// 해당 디렉터리에 해당 파일이 존재하는지 확인
+function Module.IsExists(Dir,FileName)
+	local File = io.open(Dir .. "/" .. FileName, 'rb')
+	if File then
+		File:close()
+	end
+	return File ~= nil
+end
+
+--// 파일/폴더 옴기기고 이름 바꾸기 => Dir:string
+function Module:MoveAndRename(StringDir, ToDir, Name)
+	local ToDir = ToDir .. "/" .. Name
+	os.rename(StringDir,ToDir)
+	
+	return ToDir
+end
+
 --// 이름 바꾸기(파일의 경우 확장자 포함) => Dir:string
 function Module:Rename(StringDir,Name)
 	local ToDir = Module:GetParent(StringDir) .. "/" .. Name
