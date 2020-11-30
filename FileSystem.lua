@@ -55,7 +55,7 @@ end
 function Module:GetParent(StringDir)
 	local SplitDir = Split(StringDir,"/")
 	local FileNameLen = #SplitDir[#SplitDir]
-	local StringDir = string.sub(StringDir,#StringDir,#StringDir-FileNameLen-1)
+	local StringDir = string.sub(StringDir,1,#StringDir-FileNameLen-1)
 	return StringDir
 end
 
