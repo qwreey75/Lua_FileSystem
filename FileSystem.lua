@@ -48,7 +48,7 @@ function Module:Remove(StringDir)
 end
 
 --// 파일/폴더 옴기기 => Dir:string
-function file:Move(StringDir, ToDir)
+function Module:Move(StringDir, ToDir)
 	local FileName do
 		local SplitDir = Split(StringDir,"/")
 		local FileName = SplitDir[#SplitDir]
@@ -61,7 +61,7 @@ function file:Move(StringDir, ToDir)
 end
 
 --// 이름 바꾸기(파일의 경우 확장자 포함) => Dir:string
-function file:Rename(StringDir,Name)
+function Module:Rename(StringDir,Name)
 	local ToDir = Module:GetParent(StringDir) .. "/" .. Name
 	os.rename(StringDir,ToDir)
 	return ToDir
