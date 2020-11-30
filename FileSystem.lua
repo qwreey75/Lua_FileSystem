@@ -17,8 +17,8 @@ function Module:GetFiles(StringDir,FnMode)
 	end
 	
 	local Files = {}
-	for i,v in FilesFn do
-		Files[i] = v
+	for v in FilesFn do
+		Files[#Files+1] = v
 	end
 	return Files
 end
@@ -31,8 +31,8 @@ function Module:GetFolders(StringDir,FnMode)
 	end
 	
 	local Files = {}
-	for i,v in FilesFn do
-		Files[i] = v
+	for v in FilesFn do
+		Files[#Files+1] = v
 	end
 	return Files
 end
@@ -45,8 +45,8 @@ function Module:GetChildren(StringDir,FnMode)
 	end
 	
 	local Files = {}
-	for i,v in FilesFn do
-		Files[i] = v
+	for v in FilesFn do
+		Files[#Files+1] = v
 	end
 	return Files
 end
