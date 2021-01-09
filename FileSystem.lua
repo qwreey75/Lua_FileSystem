@@ -120,5 +120,9 @@ function Module:Rename(StringDir,Name)
 	return ToDir
 end
 
+--// 파일 만들기
+function Module:MakeFile(Dir,FileName,Ext)
+	os.execute(('echo "" > "%s"'):format(Dir .. "/" .. FileName .. "." .. Ext))
+end
 
 return Module
