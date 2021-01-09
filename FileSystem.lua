@@ -123,7 +123,7 @@ end
 --// 파일 만들기
 function Module:MakeFile(Dir,FileName,Ext)
 	os.execute(('echo "" > "luafilesystemtmpfileI.txt"'))
-	Module:MoveAndRename("luafilesystemtmpfileI.txt",Dir .. "/" .. FileName .. "." .. Ext)
+	Module:MoveAndRename("luafilesystemtmpfileI.txt",Dir,FileName .. "." .. Ext)
 end
 
 return Module
